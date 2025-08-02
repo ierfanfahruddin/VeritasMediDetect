@@ -1,0 +1,11 @@
+# Flask is a lightweight web framework for creating the API
+flask
+
+# Pandas is essential for data manipulation and analysis
+pandas
+
+# Scikit-learn is the core library for machine learning models
+scikit-learn
+
+# Joblib is used for saving and loading trained models efficiently
+joblib
