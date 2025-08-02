@@ -23,25 +23,28 @@ Sistem ini menggunakan arsitektur microservice untuk memisahkan logika AI dari a
 Untuk menjalankan layanan ini, Anda memerlukan Python 3.8+ terinstal di sistem Anda.
 
 1.  **Buka Terminal:** Arahkan terminal Anda ke direktori proyek ini.
+
     ```bash
     cd path/to/anomaly_detection_service
     ```
 
 2.  **Buat Lingkungan Virtual (Recommended):** Ini akan mengisolasi dependensi proyek.
+
     ```bash
     python -m venv venv
     ```
 
 3.  **Aktifkan Lingkungan Virtual:**
-    *   **Windows:**
-        ```bash
-        venv\Scripts\activate
-        ```
-    *   **macOS/Linux:**
-        ```bash
-        source venv/bin/activate
-        ```
-    Anda akan melihat `(venv)` di awal prompt terminal Anda jika berhasil.
+
+    - **Windows:**
+      ```bash
+      venv\Scripts\activate
+      ```
+    - **macOS/Linux:**
+      `bash
+source venv/bin/activate
+`
+      Anda akan melihat `(venv)` di awal prompt terminal Anda jika berhasil.
 
 4.  **Instal Dependensi:** Gunakan file `requirements.txt` untuk menginstal semua library yang dibutuhkan.
     ```bash
@@ -68,28 +71,35 @@ Server akan berjalan di `http://127.0.0.1:5000`. Biarkan terminal ini tetap terb
 
 Endpoint ini adalah inti dari layanan.
 
-*   **Method:** `POST`
-*   **URL:** `http://127.0.0.1:5000/analyze`
-*   **Body (Payload):** Permintaan harus berupa JSON dengan struktur spesifik berikut:
-    ```json
-    {
-      "records": [
-        { "pasien_nm": "John Doe", "lokasi_nm": "ICU", "ekg_qty": 1, "usg_qty": 0, ... },
-        { "pasien_nm": "Jane Smith", "lokasi_nm": "UGD", "ekg_qty": 12, "usg_qty": 1, ... },
-        ...
-      ]
-    }
-    ```
-    Kunci utamanya adalah `"records"`, yang nilainya adalah sebuah array (list) dari objek-objek (dictionary) data. Setiap objek mewakili satu baris dari laporan Anda.
+- **Method:** `POST`
+- **URL:** `http://127.0.0.1:5000/analyze`
+- **Body (Payload):** Permintaan harus berupa JSON dengan struktur spesifik berikut:
 
-*   **Response (Success):** Jika berhasil, layanan akan mengembalikan JSON dengan data yang telah dianalisis.
-    ```json
-    {
-      "analyzed_records": [
-        { "pasien_nm": "John Doe", ..., "is_anomaly": false, "anomaly_reason": "" },
-        { "pasien_nm": "Jane Smith", ..., "is_anomaly": true, "anomaly_reason": "Frekuensi EKG Tinggi (>5)" }
-      ]
-    }
+  ```json
+  {
+    "records": [
+      { "pasien_nm": "John Doe", "lokasi_nm": "ICU", "ekg_qty": 1, "usg_qty": 0, ... },
+      { "pasien_nm": "Jane Smith", "lokasi_nm": "UGD", "ekg_qty": 12, "usg_qty": 1, ... },
+      ...
+    ]
+  }
+  ```
 
+  Kunci utamanya adalah `"records"`, yang nilainya adalah sebuah array (list) dari objek-objek (dictionary) data. Setiap objek mewakili satu baris dari laporan Anda.
 
-    FYI cuma repo iseng2 saja😁
+- **Response (Success):** Jika berhasil, layanan akan mengembalikan JSON dengan data yang telah dianalisis.
+
+  ```json
+  {
+    "analyzed_records": [
+      { "pasien_nm": "John Doe", ..., "is_anomaly": false, "anomaly_reason": "" },
+      { "pasien_nm": "Jane Smith", ..., "is_anomaly": true, "anomaly_reason": "Frekuensi EKG Tinggi (>5)" }
+    ]
+  }
+  ```
+
+```
+
+ FYI cuma repo iseng2 saja😁
+
+```
