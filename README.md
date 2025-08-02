@@ -90,3 +90,6 @@ Endpoint ini adalah inti dari layanan.
         { "pasien_nm": "Jane Smith", ..., "is_anomaly": true, "anomaly_reason": "Frekuensi EKG Tinggi (>5)" }
       ]
     }
+
+
+    FYI cuma repo iseng2 saja😁
